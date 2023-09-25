@@ -8,8 +8,8 @@ personal_account = 0
 history_list = []
 
 # 1. Создание папки
-def create_a_folder():
-    name = input('Введите имя папки  ')
+def create_a_folder(name):
+    #name = input('Введите имя папки  ')
     # проверка на существование
     if not os.path.exists(f'{name}'):
         # создать папку передаем путь
@@ -19,8 +19,7 @@ def create_a_folder():
         print("Такая папка уже есть")
 
 
-def delete_folder():
-    name = input('Введите имя файла/папки  ')
+def delete_folder(name):
     # проверка на существование
     if os.path.exists(f'{name}'):
         # удалить папку
@@ -42,7 +41,7 @@ def delete_folder():
     else:
         print("Такого(ой) файла/папки нет")
 
-def copy_folder():
+def copy_folder(name):
     name = input('Введите имя файла/папки  для копирования  ')
     # проверка на существование
     if os.path.exists(f'{name}'):
@@ -106,47 +105,49 @@ def change_dir():
 # В плане усложнения не понял - 'C:\Users\Александр\PycharmProjects\pythonProject1\basics1\venv' меняет каталог с basics1 на venv
 #  и просто 'venv' меняет каталог на venv. В принципе не вижу проблемы в парсинге пути и, например, использовании стрелочки для "назад"
 
-while True:
+if __name__ == '__main__':
+    while True:
+        print('1. создать папку')
+        print('2. удалить (файл/папку)')
+        print('3. копировать (файл/папку)')
+        print('4. просмотр содержимого рабочей директории')
+        print('5. посмотреть только папки')
+        print('6. посмотреть только файлы')
+        print('7. просмотр информации об операционной системе')
+        print('8. создатель программы')
+        print('9. играть в викторину')
+        print('10. мой банковский счет')
+        print('11. смена рабочей директории')
+        print('12. выход')
 
-    print('1. создать папку')
-    print('2. удалить (файл/папку)')
-    print('3. копировать (файл/папку)')
-    print('4. просмотр содержимого рабочей директории')
-    print('5. посмотреть только папки')
-    print('6. посмотреть только файлы')
-    print('7. просмотр информации об операционной системе')
-    print('8. создатель программы')
-    print('9. играть в викторину')
-    print('10. мой банковский счет')
-    print('11. смена рабочей директории')
-    print('12. выход')
-
-    choice = input('Выберите пункт меню  ')
-    if choice == '1':
-        create_a_folder()
-    elif choice == '2':
-        delete_folder()
-    elif choice == '3':
-        copy_folder()
-    elif choice == '4':
-        view_dir()
-    elif choice == '5':
-        view_dir_folder()
-    elif choice == '6':
-        view_dir_file()
-    elif choice == '7':
-        info_os()
-    elif choice == '8':
-        print('Я - создатель программы. Волохов А.А')
-    elif choice == '9':
-        victorina()
-    elif choice == '10':
-        personal_account, history_list = account_management(personal_account, history_list)
-        print(f'На вашем счету {personal_account} $')
-    elif choice == '11':
-        change_dir()
-    elif choice == '12':
-        break
-    else:
-        print('Неверный пункт меню')
+        choice = input('Выберите пункт меню  ')
+        if choice == '1':
+            name = input('Введите имя папки  ')
+            create_a_folder(name)
+        elif choice == '2':
+            name = input('Введите имя файла/папки  ')
+            delete_folder(name)
+        elif choice == '3':
+            copy_folder()
+        elif choice == '4':
+            view_dir()
+        elif choice == '5':
+            view_dir_folder()
+        elif choice == '6':
+            view_dir_file()
+        elif choice == '7':
+            info_os()
+        elif choice == '8':
+            print('Я - создатель программы. Волохов А.А')
+        elif choice == '9':
+            victorina()
+        elif choice == '10':
+            personal_account, history_list = account_management(personal_account, history_list)
+            print(f'На вашем счету {personal_account} $')
+        elif choice == '11':
+            change_dir()
+        elif choice == '12':
+            break
+        else:
+            print('Неверный пункт меню')
 

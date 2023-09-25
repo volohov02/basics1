@@ -81,9 +81,6 @@ def view_dir_file():
             print(index)
 
 def info_os():
-    import os
-    import sys
-
     print('My OS is', sys.platform, '(', os.name, ')')
 
 # os.name, os.uname не работает, а sys.platform врет. показывает 32 разрядную винду, а она 64 разрядная.
@@ -105,6 +102,21 @@ def change_dir():
 # В плане усложнения не понял - 'C:\Users\Александр\PycharmProjects\pythonProject1\basics1\venv' меняет каталог с basics1 на venv
 #  и просто 'venv' меняет каталог на venv. В принципе не вижу проблемы в парсинге пути и, например, использовании стрелочки для "назад"
 
+def print_dir():
+    unsorted_file_list = os.listdir()
+    sortetd_file_list = sorted(unsorted_file_list)
+    with open('listdir.txt', 'w') as f:
+        f.write('files: ')
+        for index in sortetd_file_list:
+            if os.path.isfile(index):
+                f.write(f'{index}, ')
+        f.write('\n')
+        f.write('dirs:  ')
+        for index in sortetd_file_list:
+            if os.path.isdir(index):
+                f.write(f'{index}, ')
+
+
 if __name__ == '__main__':
     while True:
         print('1. создать папку')
@@ -118,7 +130,8 @@ if __name__ == '__main__':
         print('9. играть в викторину')
         print('10. мой банковский счет')
         print('11. смена рабочей директории')
-        print('12. выход')
+        print('12. сохранить содержимое рабочей директории в файл')
+        print('13. выход')
 
         choice = input('Выберите пункт меню  ')
         if choice == '1':
@@ -147,6 +160,8 @@ if __name__ == '__main__':
         elif choice == '11':
             change_dir()
         elif choice == '12':
+            print_dir()
+        elif choice == '13':
             break
         else:
             print('Неверный пункт меню')

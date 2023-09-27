@@ -7,16 +7,30 @@ from victory import victorina
 personal_account = 0
 history_list = []
 
+#0. декоратор
+def advertising(func):
+    def inner(*args, **kwargs):
+        print('*'*45)
+        print('Это РЕКЛАМА и уберем мы ее если нам заплатят!')
+        print('*'*45)
+        result = func(*args, **kwargs)
+        return result
+    return inner
+
 # 1. Создание папки
+@advertising
 def create_a_folder(name):
-    #name = input('Введите имя папки  ')
-    # проверка на существование
-    if not os.path.exists(f'{name}'):
-        # создать папку передаем путь
-        os.mkdir(f'{name}')
-        print(f"Папка {name} создана")
-    else:
-        print("Такая папка уже есть")
+#Тернарный оператор. Пришлось пожертвовать сообщением, что папка создана
+# Больше конструкций if - else с одним оператором в каждой ветке нет. Делать искусственно тернарный оператор из if без else не вижу смысла
+    os.mkdir(f'{name}') if not os.path.exists(f'{name}') else print("Такая папка уже есть")
+    # #name = input('Введите имя папки  ')
+    # # проверка на существование
+    # if not os.path.exists(f'{name}'):
+    #     # создать папку передаем путь
+    #     os.mkdir(f'{name}')
+    #     print(f"Папка {name} создана")
+    # else:
+    #     print("Такая папка уже есть")
 
 
 def delete_folder(name):
@@ -41,6 +55,7 @@ def delete_folder(name):
     else:
         print("Такого(ой) файла/папки нет")
 
+@advertising
 def copy_folder(name):
     name = input('Введите имя файла/папки  для копирования  ')
     # проверка на существование
@@ -66,6 +81,7 @@ def view_dir():
     for index in sortetd_file_list:
         print(index)
 
+@advertising
 def view_dir_folder():
     unsorted_file_list = os.listdir()
     sortetd_file_list = sorted(unsorted_file_list)
@@ -85,6 +101,8 @@ def info_os():
 
 # os.name, os.uname не работает, а sys.platform врет. показывает 32 разрядную винду, а она 64 разрядная.
 
+
+# Здесь уже реализована обработка исключений
 
 def change_dir():
     print(f'Вы находитесь в каталоге {os.getcwd()}')
@@ -155,8 +173,8 @@ if __name__ == '__main__':
         elif choice == '9':
             victorina()
         elif choice == '10':
-            personal_account, history_list = account_management(personal_account, history_list)
-            print(f'На вашем счету {personal_account} $')
+            account_management()
+            # print(f'На вашем счету {personal_account} $')
         elif choice == '11':
             change_dir()
         elif choice == '12':

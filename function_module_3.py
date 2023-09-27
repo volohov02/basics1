@@ -24,10 +24,11 @@ def refill(number, personal_account):
 
 # История покупок
 def history(history_list):
-    test_date = []
-    for index in range(len(history_list)):
-        print(index+1,". ",history_list[index])
-        test_date.append(f'{index+1}. {history_list[index]}')
+    # test_date = []
+    test_date = [f'{index+1}. {history_list[index]}' for index in range(len(history_list))]
+    # for index in range(len(history_list)):
+    #     print(index+1,". ",history_list[index])
+    #     test_date.append(f'{index+1}. {history_list[index]}')
     return test_date
 
 
@@ -39,6 +40,7 @@ def account_management():
     orders = []
     if os.path.exists(FILE_NAME):
         with open(FILE_NAME, 'r') as f:
+#Тут можно было бы организовать генератор, но после работы цикла в order остается последняя сторка, с которой я работаю, а после генератора ее нет.
             for order in f:
                 orders.append(order.replace('\n', ''))
             order = order.replace(': ', '.')

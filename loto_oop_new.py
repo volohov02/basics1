@@ -43,11 +43,10 @@ class Barrel:
 class Card:
 
     def __init__(self):
-        self.card = [[[None, True] for j in range(columns)] for i in range(lines)]
-        self.human_error = 3
+        self.values = [[[None, True] for j in range(columns)] for i in range(lines)]
 
     def print_list_card(self):
-        print(self.card)
+        print(self.values)
 
     def generation_of_card(self):
         """
@@ -59,7 +58,7 @@ class Card:
         for index_string in range(lines):
             list_5_9 = list_random(count_in_line, 0, columns-1)
             for index_list in range(count_in_line):
-                self.card[index_string][list_5_9[index_list]][0] = list_15_90[index_list+index_string*count_in_line]
+                self.values[index_string][list_5_9[index_list]][0] = list_15_90[index_list+index_string*count_in_line]
 
     def print_of_card(self):
         """
@@ -72,18 +71,40 @@ class Card:
 
             card_string = ''
             for index_column in range(columns):
-                if self.card[index_string][index_column][1] == False:
+                if self.values[index_string][index_column][1] == False:
                     card_string += ' --'
                 else:
-                    choise = self.card[index_string][index_column][0]
+                    choise = self.values[index_string][index_column][0]
                     if choise == None:
                         card_string += '   '
                     elif choise < 10:
-                        card_string += '  '+ str(self.card[index_string][index_column][0])
+                        card_string += '  '+ str(self.values[index_string][index_column][0])
                     elif choise >= 10:
-                        card_string += ' ' + str(self.card[index_string][index_column][0])
+                        card_string += ' ' + str(self.values[index_string][index_column][0])
             print(card_string)
         print('-'*columns*3)
+
+    def chekin_card(self):
+        """
+        Проверяет количество зачеркнутых элементов
+        :param card: карточка
+        :return: количество зачеркнутых элементов
+        """
+        namber = 0
+        for index_string in range(lines):
+            for index_columns in range(columns):
+                if (self.values[index_string][index_columns][1] == False):
+                    namber += 1
+        return namber
+
+class Game:
+
+    def __init__(self, computer_card, human_card, game_io):
+        self.computer_card = computer_card
+        self.human_card = human_card
+        self.human_error = 3
+        self.game_io = game_io
+
     def computer_moving(self, move_number):
         """
         Ходит за компьютер, не ошибается
@@ -95,10 +116,10 @@ class Card:
         """
         for index_string in range(lines):
             for index_columns in range(columns):
-                if self.card[index_string][index_columns][0] == move_number:
-                    self.card[index_string][index_columns][1] = False
+                if self.computer_card.values[index_string][index_columns][0] == move_number:
+                    self.computer_card.values[index_string][index_columns][1] = False
 
-    def human_moving(self,move_number):
+    def human_moving(self, move_number):
         """
         Ходит за человека, требует ввод
         :param card: карточка
@@ -107,14 +128,14 @@ class Card:
         :param lines: строки
         :return: Карточка
         """
-        print(f'Выпал номер  {move_number}')
-        move = input('Зачеркнуть цифру? (y/n) ')
+
+        move = game_io.apply_number(move_number)
         for index_string in range(lines):
             for index_columns in range(columns):
-                if (self.card[index_string][index_columns][0] == move_number and move == 'y'):
-                    self.card[index_string][index_columns][1] = False
+                if (self.human_card.values[index_string][index_columns][0] == move_number and move == 'y'):
+                    self.human_card.values[index_string][index_columns][1] = False
                     self.human_error = 0
-                elif self.card[index_string][index_columns][0] == move_number and move != 'y':
+                elif self.human_card.values[index_string][index_columns][0] == move_number and move != 'y':
                     self.human_error = 1
         if self.human_error == 3 and move == 'y':
             self.human_error = 1
@@ -122,43 +143,50 @@ class Card:
             self.human_error = 0
         return self.human_error
 
-    def chekin_card(self):
-        """
-        Проверяет количество зачеркнутых элементов
-        :param card: карточка
-        :return: количество зачеркнутых элементов
-        """
-        namber = 0
-        for index_string in range(lines):
-            for index_columns in range(columns):
-                if (self.card[index_string][index_columns][1] == False):
-                    namber += 1
-        return namber
+    def game_loop(self):
+        check_computer = 0
+        check_human = 0
+        human_error = 0
 
-check_computer = 0
-check_human = 0
-human_error = 0
+        while check_computer < count_in_line * lines and check_human < count_in_line * lines and human_error == 0:
+            barrel = Barrel()
+            move_number = barrel.generation_of_move()
+            game_io.show_computer_card()
+            computer_card.print_of_card()
+            game_io.show_human_card()
+            human_card.print_of_card()
+            self.computer_moving(move_number)
+            human_error = self.human_moving(move_number)
+            check_computer = computer_card.chekin_card()
+            check_human = human_card.chekin_card()
+
+        print('Game over')
+        print('Computer Win!') if check_computer == count_in_line * lines or human_error == 1 else print('Human Win!')
+
+class GameIO:
+
+    NUMBER_GET = 'Выпал номер'
+    QUESTION_Y_N = 'Зачеркнуть цифру? (y/n) '
+    COMPUTER_CARD = 'Карточка компьютера'
+    HUMAN_CARD = 'Карточка человека'
+
+    def apply_number(self, move_number):
+        print(f'{self.NUMBER_GET} {move_number}')
+        return input(f'{self.QUESTION_Y_N} ')
+
+    def show_computer_card(self):
+        print(self.COMPUTER_CARD)
+
+    def show_human_card(self):
+        print(self.HUMAN_CARD)
+
+
 
 computer_card = Card()
 computer_card.generation_of_card()
 human_card = Card()
 human_card.generation_of_card()
-print('Карточка компьютера')
-computer_card.print_of_card()
-print('Карточка человека')
-human_card.print_of_card()
+game_io = GameIO()
+game = Game(computer_card, human_card, game_io)
+game.game_loop()
 
-while check_computer < count_in_line*lines and check_human < count_in_line*lines and human_error == 0:
-    barrel = Barrel()
-    move_number = barrel.generation_of_move()
-    computer_card.computer_moving(move_number)
-    human_error = human_card.human_moving(move_number)
-    print('Карточка компьютера')
-    computer_card.print_of_card()
-    print('Карточка человека')
-    human_card.print_of_card()
-    check_computer = computer_card.chekin_card()
-    check_human = human_card.chekin_card()
-
-print('Game over')
-print('Computer Win!') if check_computer == count_in_line*lines or human_error == 1 else print('Human Win!')

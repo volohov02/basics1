@@ -22,23 +22,33 @@ max_count = 90
 columns = 9
 lines = 3
 count_in_line = 5
+
+
+class BarrelRandom:
+
+    def get_rand_number(self):
+        return randint(min_count, max_count)
+
 class Barrel:
     # Переменные класса "бочонок" не должны меняться снаружи класса.
 
 
-    def __init__(self, number=0, move_history=[]):
+    def __init__(self, number=0, move_history=[], barrel_random = BarrelRandom()):
         self.__number = number
         self.__move_history = move_history
+        self.__barrel_random = barrel_random
 
     def generation_of_move(self):
-        self.__number = randint(min_count, max_count)
+        self.__number = self.__barrel_random.get_rand_number()
         while self.__number in self.__move_history:
-            self.__number = randint(min_count, max_count)
+            self.__number = self.__barrel_random.get_rand_number()
         self.__move_history.append(self.__number)
-        move_namber = self.__number
-        return move_namber
+        move_number = self.__number
+        return move_number
 
 #--------------------------------------------------------------------------------
+
+
 
 class Card:
 
@@ -130,6 +140,7 @@ class Game:
         """
 
         move = game_io.apply_number(move_number)
+        self.human_error = 3
         for index_string in range(lines):
             for index_columns in range(columns):
                 if (self.human_card.values[index_string][index_columns][0] == move_number and move == 'y'):
@@ -181,12 +192,12 @@ class GameIO:
         print(self.HUMAN_CARD)
 
 
-
-computer_card = Card()
-computer_card.generation_of_card()
-human_card = Card()
-human_card.generation_of_card()
-game_io = GameIO()
-game = Game(computer_card, human_card, game_io)
-game.game_loop()
+if __name__ == '__main__':
+    computer_card = Card()
+    computer_card.generation_of_card()
+    human_card = Card()
+    human_card.generation_of_card()
+    game_io = GameIO()
+    game = Game(computer_card, human_card, game_io)
+    game.game_loop()
 

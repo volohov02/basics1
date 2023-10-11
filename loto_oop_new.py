@@ -29,6 +29,9 @@ class BarrelRandom:
     def get_rand_number(self):
         return randint(min_count, max_count)
 
+    def __str__(self):
+        return f'Это магический метод класса BarrelRandom. Хэш: {self.__hash__()} '
+
 class Barrel:
     # Переменные класса "бочонок" не должны меняться снаружи класса.
 
@@ -45,12 +48,26 @@ class Barrel:
         self.__move_history.append(self.__number)
         move_number = self.__number
         return move_number
+    def __str__(self):
+        return f'Это магический метод класса Barrel. Выпал номер {self.__number}'
 
 #--------------------------------------------------------------------------------
 
 
 
 class Card:
+
+
+    def __eq__(self, other):
+        for index_string in range(lines):
+            for index_columns in range(columns):
+                if (self.values[index_string][index_columns][0] == other.values[index_string][index_columns][0]):
+                    return True
+                else:
+                    return False
+
+    def __str__(self):
+        return f'Это магический метод класса Card.'
 
     def __init__(self):
         self.values = [[[None, True] for j in range(columns)] for i in range(lines)]
@@ -108,6 +125,9 @@ class Card:
         return namber
 
 class Game:
+
+    def __str__(self):
+        return f'Это магический метод класса Game.'
 
     def __init__(self, computer_card, human_card, game_io):
         self.computer_card = computer_card
@@ -176,6 +196,9 @@ class Game:
 
 class GameIO:
 
+    def __str__(self):
+        return f'Это магический метод класса GameIO.'
+
     NUMBER_GET = 'Выпал номер'
     QUESTION_Y_N = 'Зачеркнуть цифру? (y/n) '
     COMPUTER_CARD = 'Карточка компьютера'
@@ -191,6 +214,22 @@ class GameIO:
     def show_human_card(self):
         print(self.HUMAN_CARD)
 
+barrel = Barrel()
+print(barrel)
+move_number = barrel.generation_of_move()
+print(barrel)
+barrel_random = BarrelRandom()
+print(hash(barrel_random))
+print(barrel_random)
+gameio = GameIO()
+print(gameio)
+computer_card = Card()
+human_card = Card()
+print(computer_card.__eq__(human_card))
+game = Game(computer_card, human_card, gameio)
+print(game)
+card = Card()
+print(card)
 
 if __name__ == '__main__':
     computer_card = Card()

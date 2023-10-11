@@ -4,13 +4,19 @@ from loto_oop_new import Barrel, list_random, BarrelRandom, Card, Game, GameIO
 from random import randint
 
 def test_list_random():
-    list_numbers = list_random(5,10,90)
+    list_numbers = list_random(5,1,90)
     # print(list_numbers)
     assert len(list_numbers) == 5
     for index in range(5):
-        assert list_numbers[index] >=10 and list_numbers[index] <=90
+        assert list_numbers[index] >=1 and list_numbers[index] <=90
 
 class TestBarrelRandom:
+
+    def __str__(self):
+        barrel_random = BarrelRandom()
+        barrel_random = str(barrel_random)
+        hash_barrel_random = hash(barrel_random)
+        self.assertEqual(barrel_random, f'Это магический метод класса BarrelRandom. Хэш: {hash_barrel_random}')
 
     counter = 0
     def get_rand_number(self):
@@ -20,7 +26,7 @@ class TestBarrelRandom:
     def test_get_rand_number(self):
         barrelrandom = BarrelRandom()
         random_number = barrelrandom.get_rand_number()
-        assert random_number >= 10 and random_number <= 90
+        assert random_number >= 1 and random_number <= 90
 
 class TestBarrel(unittest.TestCase):
 
@@ -31,10 +37,21 @@ class TestBarrel(unittest.TestCase):
         move_number = self.barrel.generation_of_move()
         self.assertEqual(move_number,2)
 
+    def __str__(self):
+        barrel = Barrel()
+        barrel = str(barrel)
+        self.assertEqual(barrel, 'Это магический метод класса Barrel. Выпал номер 0')
+        move_number = barrel.generation_of_move()
+        self.assertEqual(barrel, 'Это магический метод класса Barrel. Выпал номер {move_number}')
+
 class TestCard(unittest.TestCase):
 
     def setUp(self):
         self.test_card = Card()
+
+    def __str__(self):
+        test_card = str(test_card)
+        self.assertEqual(test_card, 'Это магический метод класса Card.')
 
     def test_init(self):
         #print(self.test_card.values)
@@ -61,7 +78,26 @@ class TestCard(unittest.TestCase):
                     count_1 += 1
         self.assertEqual(count_1, 27)
 
+
+    def test__eq__(self):
+        computer_card = Card()
+        computer_card.generation_of_card()
+        human_card = computer_card
+        self.assertTrue (computer_card.__eq__(human_card))
+        human_card = Card()
+        human_card.generation_of_card()
+        self.assertFalse(computer_card.__eq__(human_card))
+
+
+
+
+
 class TestGame(unittest.TestCase):
+
+    def __str__(self):
+        game = Game()
+        game = str(game)
+        self.assertEqual(game, 'Это магический метод класса Game.')
     pass
 
     def test_computer_moving(self):
@@ -92,3 +128,10 @@ class TestGame(unittest.TestCase):
         self.computer_card = Card()
         self.human_card = Card()
         self.game = Game(self.computer_card, self.human_card, self.game_io)
+
+class TestGameIO(unittest.TestCase):
+
+    def __str__(self):
+        gameio = GameIO()
+        gameio = str(gameio)
+        self.assertEqual(gameio, 'Это магический метод класса GameIO.')

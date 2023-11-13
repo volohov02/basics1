@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Результаты</title>
+<!--        <link rel="stylesheet" href="/static/main.css" type="text/css">-->
+    </head>
+    <body bgcolor="#CCCCCC" text="#000000">
+
+    <table valign="top" width="100%">
+    <tr><td valign="top" align="left"></td>
+        <td valign="top" width=150px align="left"><a href="/index">Главная страница</a></td>
+        <td valign="top" width=85px align="left"><a href="/contacts">Контакты</a></td>
+        <td valign="top" width=115px align="left"><a href="/form">Выбор поиска</a></td>
+        <td valign="top" width=100px align="left"><a href="/result">Результаты</a></td></tr>
+    </table>
+
+    <p>{{header}}</p>
+    <br><hr>
+    <ul>
+        {% for item in news %}
+            <li>
+                {{item}}
+            </li>
+        {% endfor %}
+    </ul>
+
+    </body>
+</html>

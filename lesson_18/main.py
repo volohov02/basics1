@@ -45,9 +45,6 @@ Base.metadata.create_all(engine)
 # create a configured "Session" class
 Session = sessionmaker(bind=engine)
 
-# conn = sqlite3.connect('database.db', check_same_thread=False)
-# cur = conn.cursor()
-
 # вывод (редеринг) главной страницы
 @app.get('/index')
 @app.get('/')
@@ -85,8 +82,6 @@ def result():
             session = Session()
             session.add(new_str)
             session.commit()
-            # cur.execute(f"insert into news (name) values ('{new}')")
-            # conn.commit()
 
     elif name == '2':
         news = []
@@ -101,8 +96,6 @@ def result():
             session.add(new_str)
             session.commit()
 
-            # cur.execute(f"insert into href (name) values ('{new}')")
-            # conn.commit()
     else:
         news = []
         header = f'Нет данных'
@@ -115,13 +108,6 @@ def contacts():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# запрос с условием
-news_data = session.query(News).filter(News.id > 10).all()
-
-for data in news_data:
-    print(data.id)
-    print(data)
 
 
 

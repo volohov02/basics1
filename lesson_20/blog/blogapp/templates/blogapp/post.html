@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{post.name}}
+{% endblock %}
+
+{% block content %}
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                <p>Это вакансия {{vacancy.name}}</p>
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        {% if vacancy.image %}
+                            <p><img src="{{vacancy.image.url}}" width="100"> {{vacancy.description}}</p>
+                        {% else %}
+                            <p></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </article>
+{% endblock %}

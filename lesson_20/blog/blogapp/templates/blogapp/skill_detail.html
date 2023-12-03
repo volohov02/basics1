@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{post.name}}
+{% endblock%}
+
+{% block content %}
+<div class="row">
+    <h1>{{name}}</h1>
+    <div class="col-lg-8 col-md-10 mx-auto">
+        {{object.name}}
+        <a href="{% url 'blog:skill_update' pk=object.pk %}"><font size="2" face="Arial">/ Изменить<font size="2" face="Arial"></font></a>
+    </div>
+</div>
+{% endblock %}

@@ -20,6 +20,4 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Vacancy
-        fields = '__all__'
-        # fields = ('name', 'category')
-        # exclude = ('tags',)
+        exclude = ('user',)

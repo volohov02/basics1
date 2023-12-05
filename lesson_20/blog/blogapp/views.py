@@ -44,14 +44,6 @@ class PostFormMixin(ContextMixin):
         """
         return super().post(request, *args, **kwargs)
 
-    def form_valid(self, form):
-        """
-        Метод срабатывает после того как форма валидна
-        :param form:
-        :return:
-        """
-        return super().form_valid(form)
-
 class SkillsListView(ListView, NameContextMixin):
     model = Skills
     template_name = 'blogapp/skills_list.html'
@@ -93,6 +85,14 @@ class SkillsCreateView(CreateView, NameContextMixin, PostFormMixin):
     model = Skills
     success_url = reverse_lazy('blog:skills_list')
     template_name = 'blogapp/skill_create.html'
+
+    def form_valid(self, form):
+        """
+        Метод срабатывает после того как форма валидна
+        :param form:
+        :return:
+        """
+        return super().form_valid(form)
 
 
 class SkillsUpdataView(UpdateView):
@@ -138,6 +138,15 @@ class VacancyCreateView(CreateView, NameContextMixin, PostFormMixin):
     model = Vacancy
     success_url = reverse_lazy('blog:index')
     template_name = 'blogapp/create.html'
+
+    def form_valid(self, form):
+        """
+        Метод срабатывает после того как форма валидна
+        :param form:
+        :return:
+        """
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 

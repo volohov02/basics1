@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Vacancy
 from .models import Skills
 from django.views.generic.base import ContextMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 class VacancyListView(ListView):
     model = Vacancy
@@ -132,7 +133,7 @@ class ContactCreateView:
             return render(request, 'blogapp/contact.html', context={'form': form})
 
 
-class VacancyCreateView(CreateView, NameContextMixin, PostFormMixin):
+class VacancyCreateView(LoginRequiredMixin, CreateView, NameContextMixin, PostFormMixin):
     # form_class =
     fields = '__all__'
     model = Vacancy

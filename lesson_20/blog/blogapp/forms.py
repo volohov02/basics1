@@ -18,6 +18,12 @@ class PostForm(forms.ModelForm):
     skills = forms.ModelMultipleChoiceField(queryset=Skills.objects.all(),
                                           widget=forms.CheckboxSelectMultiple())
 
+    # class Meta:
+    #     model = Vacancy
+    #     fields = ('name',)
+
     class Meta:
         model = Vacancy
+        #fields = '__all__'
+        #fields = ('name',)
         exclude = ('user',)

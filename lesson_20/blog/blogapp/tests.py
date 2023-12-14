@@ -3,19 +3,6 @@ from blogapp.models import Skills, Vacancy
 from usersapp.models import BlogUser
 from mixer.backend.django import mixer
 
-#Create your tests here.
-#class SkillsTestCaseMixer(TestCase):
-
-    # def setUp(self):
-    #     self.skills = mixer.blend(Skills)
-    #
-    #     # category = mixer.blend(Category, name='test_category')
-    #     # self.post_str = mixer.blend(Post, name='test_post_str', category=category)
-    #     # Короткая запись
-    #     self.skills_str = mixer.blend(Vacansy, name='skills_post_str', category__name='test_category')
-    #
-    # def test_str(self):
-    #     self.assertEqual(str(self.skills_str), 'test_skills_str, category: test_category')
 
 class VacancyTestCase(TestCase):
 

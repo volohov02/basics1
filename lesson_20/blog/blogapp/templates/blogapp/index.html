@@ -21,6 +21,13 @@
                                     Posted by
                                     <a href="#!">Start Bootstrap</a>
                                     on September 24, 2023
+                                    {% if item.has_image %}
+                                        Есть картинка
+                                        {% else%}
+                                        Нет картинки
+                                    {% endif %}
+                                        {{item.has_image}}
+                                        {{item.some_method}}
                                 </p>
                             </div>
 

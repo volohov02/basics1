@@ -7,11 +7,13 @@ from .models import Vacancy
 from .models import Skills
 from django.views.generic.base import ContextMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 class VacancyListView(ListView):
     model = Vacancy
     template_name = 'blogapp/index.html'
     context_object_name = 'vacancy'
+    paginate_by = 2
 
     def get_queryset(self):
         """
@@ -49,6 +51,7 @@ class SkillsListView(ListView, NameContextMixin):
     model = Skills
     template_name = 'blogapp/skills_list.html'
     context_object_name = 'skills'
+    paginate_by = 5
 
     def get_queryset(self):
         """

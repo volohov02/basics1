@@ -1,5 +1,5 @@
 from django.test import TestCase
-from blogapp.models import Skills, Vacancy
+from .models import Skills, Vacancy
 from usersapp.models import BlogUser
 from mixer.backend.django import mixer
 

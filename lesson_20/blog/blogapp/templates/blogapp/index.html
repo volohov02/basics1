@@ -11,7 +11,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     <h1>{{name}}</h1>
-                        {% for item in object_list %}
+                        {% for item in vacancies %}
                             <div class="post-preview">
                                 <a href="{% url 'blog:post'  id=item.id %}">
                                     <h2 class="post-title">Вакансия {{item.name}}, регион {{item.areal}}</h2>
@@ -37,23 +37,21 @@
                 </div>
             <div class="clearfix">
                 <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; первая |</a>
+                            <a href="?page={{ page_obj.previous_page_number }}">предыдущая |</a>
+                        {% endif %}
 
-                <span class="step-links">
-                    {% if object_list.has_previous %}
-                        <a href="?page=1">&laquo; first</a>
-                        <a href="?page={{ object_list.previous_page_number }}">previous</a>
-                    {% endif %}
+                        <span class="current">
+                            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                        </span>
 
-                    <span class="current">
-                        Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">| следующая</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}">| последняя &raquo;</a>
+                        {% endif %}
                     </span>
-
-                    {% if object_list.has_next %}
-                        <a href="?page={{ object_list.next_page_number }}">next</a>
-                        <a href="?page={{ object_list.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-
-                </span>
                 </div>
             </div>
 

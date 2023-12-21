@@ -12,7 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 class VacancyListView(ListView):
     model = Vacancy
     template_name = 'blogapp/index.html'
-    context_object_name = 'vacancy'
+    context_object_name = 'vacancies'
     paginate_by = 2
 
     def get_queryset(self):
@@ -51,7 +51,7 @@ class SkillsListView(ListView, NameContextMixin):
     model = Skills
     template_name = 'blogapp/skills_list.html'
     context_object_name = 'skills'
-    paginate_by = 5
+    paginate_by = 3
 
     def get_queryset(self):
         """

@@ -9,8 +9,10 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    Количество вакансий на странице: {{vacancies|length}}
                     <!-- Post preview-->
-                    <h1>{{name}}</h1>
+                   <h1>{{ header }} {{ page_obj.number }}</h1>
+
                         {% for item in vacancies %}
                             <div class="post-preview">
                                 <a href="{% url 'blog:post'  id=item.id %}">

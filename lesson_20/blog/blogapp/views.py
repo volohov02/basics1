@@ -14,6 +14,19 @@ class VacancyListView(ListView):
     template_name = 'blogapp/index.html'
     context_object_name = 'vacancies'
     paginate_by = 2
+    # title = 'Потрошение сайта hh.ru'
+
+    def get_context_data(self, *args, **kwargs):
+        """
+        Отвечает за передачу параметров в контекст
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        context = super().get_context_data(*args, **kwargs)
+        context['header'] = "страница вакансий"
+        context['message'] = "Welcome to Python"
+        return context
 
     def get_queryset(self):
         """
@@ -137,12 +150,22 @@ class ContactCreateView:
 
 
 class VacancyCreateView(LoginRequiredMixin, CreateView, NameContextMixin, PostFormMixin):
-    # form_class =
+    # form_class = PostForm
     fields = '__all__'
     model = Vacancy
     success_url = reverse_lazy('blog:index')
     template_name = 'blogapp/create.html'
 
+    def get_context_data(self, *args, **kwargs):
+        """
+        Отвечает за передачу параметров в контекст
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        context = super().get_context_data(*args, **kwargs)
+        context['form'] = PostForm()
+        return context
     def form_valid(self, form):
         """
         Метод срабатывает после того как форма валидна

@@ -1,6 +1,6 @@
 from django import forms
-from .models import Vacancy
-from .models import Skills
+from blogapp.models import Vacancy
+from blogapp.models import Skills
 
 
 
@@ -11,6 +11,10 @@ class ContactForm(forms.Form):
 
 
 class PostForm(forms.ModelForm):
+    class Meta:
+        model = Vacancy
+        exclude = ['user']
+
     name = forms.CharField(label='Название',
                            widget=forms.TextInput(attrs={'placeholder': 'Name', 'class': 'form-control'}))
 
@@ -22,8 +26,3 @@ class PostForm(forms.ModelForm):
     #     model = Vacancy
     #     fields = ('name',)
 
-    class Meta:
-        model = Vacancy
-        #fields = '__all__'
-        #fields = ('name',)
-        exclude = ('user',)

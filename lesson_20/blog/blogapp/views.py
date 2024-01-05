@@ -33,7 +33,7 @@ class VacancyListView(ListView):
         Получение данных
         :return:
         """
-        return Vacancy.objects.all()
+        return Vacancy.objects.select_related('user').all()
 
 
 class NameContextMixin(ContextMixin):

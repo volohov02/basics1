@@ -11,12 +11,13 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     Количество вакансий на странице: {{vacancies|length}}
                     <!-- Post preview-->
-<!--                   <h1>{{ header }} {{ page_obj.number }}</h1>-->
+                   <h1>{{ header }} {{ page_obj.number }}</h1>
 
                         {% for item in vacancies %}
                             <div class="post-preview">
                                 <a href="{% url 'blog:post'  id=item.id %}">
                                     <h2 class="post-title">Вакансия {{item.name}}, регион {{item.areal}}</h2>
+                                    <h3 class="post-subtitle">Автор поста {{item.user.username}}</h3>
                                     <h3 class="post-subtitle">{{item.description}}</h3>
                                 </a>
                                 <p class="post-meta">

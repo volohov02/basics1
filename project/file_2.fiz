@@ -1,0 +1,57 @@
+vaaF 1614
+<string_variables>
+Y = В далёкой-далёкой галактике на планете Клинг
+G0 = с ускорением свободного падения
+G1 = ускорение свободного падения на этой планете
+X = мальчик
+M0 = массой
+M1 = массу мальчика
+K = качается на качелях
+L0 = с длиной подвеса
+L1 = длину подвеса качелей
+P0 = вес мальчика при прохождении положения равновесия
+V0 = скорость мальчика в этот момент
+H0 = максимальная высота подъёма мальчика относительно положения равновесия равна
+H1 = максимальную высоту подъёма мальчика относительно положения равновесия
+O = Определите
+E = если известно, что
+R = составляет
+R1 = равна
+Z = Считайте, что трением и сопротивлением воздуха можно пренебречь, а длина подвеса качелей - это расстояние от точки подвеса до центра тяжести мальчика.
+A = а
+Dot = .
+Comma = ,
+</string_variables>
+<options>
+Y=G0=G=X=M0=M=K=L0=L=Dot=O=P0=Comma=E=V0=R=V=Dot=Z
+Y=X=M0=M=K=L0=L=Dot=O=G1=Comma=E=P0=R=P=Comma=A=V0=R1=V=Dot=Z
+Y=G0=G=X=K=L0=L=Dot=O=M1=Comma=E=P0=R=P=Comma=A=V0=R1=V=Dot=Z
+Y=G0=G=X=M0=M=K=Dot=O=L1=Comma=E=P0=R=P=Comma=A=V0=R1=V=Dot=Z
+Y=G0=G=X=M0=M=K=L0=L=Dot=O=P0=Comma=E=H0=R=H=Dot=Z
+Y=G0=G=X=M0=M=K=L0=L=Dot=O=H1=Comma=E=P0=R=P=Dot=Z
+Y=X=M0=M=K=L0=L=Dot=O=G1=Comma=E=P0=R=P=Comma=A=H0=R1=H=Dot=Z
+Y=G0=G=X=K=L0=L=Dot=O=M1=Comma=E=P0=R=P=Comma=A=H0=R1=H=Dot=Z
+Y=G0=G=X=M0=M=K=Dot=O=L1=Comma=E=P0=R=P=Comma=A=H0=R1=H=Dot=Z
+</options>
+<namber_variables>
+G = g = 2 = 20 = м/с^2
+P = P = 800 = 1200 = Н
+M = m = 30 = 80 = кг
+H = h = 0.5 = 2 = м
+L = L = 3 = 5 = м
+V = v = 0.5 = 5 = м/с
+</namber_variables>
+<solution>
+</solution>
+<answer>
+answer = m*(g+v**2/L)
+answer = (L*P-m*v**2)/(L*m)
+answer = P*L/(L*g+v**2)
+answer = m*v**2/(P-g*m)
+answer = m*g*(1+2*h/L)
+answer = L*(P-g*m)/(2*m*g)
+answer = P*L/(m*(L+2*h))
+answer = P*L/(g*(L+2*h))
+answer = 2*m*g*h/(P-g*m)
+</answer>
+

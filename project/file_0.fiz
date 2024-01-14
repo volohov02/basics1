@@ -1,0 +1,82 @@
+vaaF 1674
+<string_variables>
+Y = Где-то на краю галактики на планете Кин-Дза-Дза
+G0 = с ускорением свободного падения
+G1 = ускорение свободного падения на этой планете
+D = через невесомый блок, перекинута невесомая и нерастяжимая нить, на которой висят два груза
+M0 = Масса более лёгкого составляет
+M2 = Масса более тяжёлого равна
+M3 = массу более тяжёлого груза
+M4 = массу более лёгкого груза
+P = Блок движется
+V1 = вертикально вверх
+V2 = вертикально вниз
+B0 = с ускорением
+B1 = это ускорение
+F0 = сила давления на ось блока
+F1 = силу давления на ось блока
+T0 = сила натяжения нити
+T1 = силу натяжения нити
+C = составляет
+R = равна
+O = Определите
+E = если известно, что
+Z = Трением в оси блока можно пренебречь.
+Dot = .
+Comma = ,
+</string_variables>
+<options>
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V1=B0=B=Dot=O=F1=Dot
+Y=D=Dot=M0=M1=Comma=M2=M=Dot=P=V1=B0=B=Dot=O=G1=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M0=M1=Dot=P=V1=B0=B=Dot=O=M3=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M2=M=Dot=P=V1=B0=B=Dot=O=M4=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V1=B0=Dot=O=B1=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V1=B0=B=Dot=O=T1=Dot
+Y=D=Dot=M0=M1=Comma=M2=M=Dot=P=V1=B0=B=Dot=O=G1=Comma=E=T0=R=T=Dot
+Y=G0=G=D=Dot=M0=M1=Dot=P=V1=B0=B=Dot=O=M3=Comma=E=T0=R=T=Dot
+Y=G0=G=D=Dot=M2=M=Dot=P=V1=B0=B=Dot=O=M4=Comma=E=T0=R=T=Dot
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V1=B0=Dot=O=B1=Comma=E=T0=R=T=Dot
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V2=B0=B=Dot=O=F1=Dot
+Y=D=Dot=M0=M1=Comma=M2=M=Dot=P=V2=B0=B=Dot=O=G1=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M0=M1=Dot=P=V2=B0=B=Dot=O=M3=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M2=M=Dot=P=V2=B0=B=Dot=O=M4=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V2=B0=Dot=O=B1=Comma=E=F0=R=F=Dot
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V2=B0=B=Dot=O=T1=Dot
+Y=D=Dot=M0=M1=Comma=M2=M=Dot=P=V2=B0=B=Dot=O=G1=Comma=E=T0=R=T=Dot
+Y=G0=G=D=Dot=M0=M1=Dot=P=V2=B0=B=Dot=O=M3=Comma=E=T0=R=T=Dot
+Y=G0=G=D=Dot=M2=M=Dot=P=V2=B0=B=Dot=O=M4=Comma=E=T0=R=T=Dot
+Y=G0=G=D=Dot=M0=M1=Comma=M2=M=Dot=P=V2=B0=Dot=O=B1=Comma=E=T0=R=T=Dot
+</options>
+<namber_variables>
+G = g = 2 = 20 = м/с^2
+B = b = 2 = 20 = м/с^2
+M1 = m = 1 = 10 = кг
+M = M = 10 = 20 = кг
+T = T = 50 = 200 = Н
+F = F = 70 = 300 = Н
+</namber_variables>
+<solution>
+</solution>
+<answer>
+answer = 4*m*M*(g+b)/(M+m)
+answer = (F*M+F*m-4*M*b*m)/(4*m*M)
+answer = F*m/(4*b*m+4*g*m-F)
+answer = F*M/(4*M*b+4*M*g-F)
+answer = (F*M+F*m-4*M*g*m)/(4*m*M)
+answer = 2*m*M*(g+b)/(M+m)
+answer = (M*T+T*m-2*M*b*m)/(2*m*M)
+answer = T*m/(2*b*m+2*g*m-T)
+answer = T*M/(2*M*b+2*M*g-T)
+answer = (M*T+T*m-2*M*g*m)/(2*m*M)
+answer = 4*m*M*(g-b)/(M+m)
+answer = (4*M*b*m+F*M+F*m)/(4*m*M)
+answer = F*m/(4*g*m-4*b*m-F)
+answer = F*M/(4*M*g-4*M*b-F)
+answer = (4*M*g*m-F*M-F*m)/(4*m*M)
+answer = 2*m*M*(g-b)/(M+m)
+answer = (2*M*b*m+M*T+T*m)/(2*m*M)
+answer = T*m/(2*g*m-2*b*m-T)
+answer = T*M/(2*M*g-2*M*b-T)
+answer = (2*M*g*m-M*T-T*m)/(2*m*M)
+</answer>
+

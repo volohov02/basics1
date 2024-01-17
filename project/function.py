@@ -38,7 +38,6 @@ def random_number(min, max):
 
 def dictionary_of_variables(file_name):
     '''
-
     :param file_name: имя файла для парсинга
     :return: словарь с переменными и их значениями в виде стринга
     '''

@@ -18,11 +18,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
+from blogapp.api_views import SkillsViewSet
+
+router = routers.DefaultRouter()
+router.register(r'skills', SkillsViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blogapp.urls', namespace='blog')),
-    path('users/', include('usersapp.urls', namespace='users'))
+    path('users/', include('usersapp.urls', namespace='users')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v0/skills/', include(router.urls)),
 ]
 
 if settings.DEBUG:

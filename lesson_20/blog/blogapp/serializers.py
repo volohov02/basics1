@@ -7,3 +7,8 @@ class SkillsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Skills
         fields = '__all__'
+
+class VacancySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Vacancy
+        exclude = ['user']

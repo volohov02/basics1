@@ -3,6 +3,7 @@ from pathlib import Path
 from random import randint
 import random
 import math
+import importlib
 
 
 def get_list_of_files():
@@ -125,7 +126,6 @@ def print_file(list_of_calc, index, file_name):
     :return: Разрешающая формула
     '''
     with open('calculator.py', 'w') as f:
-        #f.write('import math\n')
         f.write('def calc():\n')
         for item in list_of_calc:
             f.write(item)
@@ -154,7 +154,7 @@ def print_rezult_file(file_name, index, text_string, formula, answer):
         f.write(string)
         f.write('\n')
 
-if __name__ == '__main__':
+def create_task():
     list_of_file = get_list_of_files()
     file_name, index = select_random_list(list_of_file)
     string_variables, list_of_calc = dictionary_of_variables(file_name)
@@ -168,6 +168,78 @@ if __name__ == '__main__':
     formula = print_file(list_of_calc, index, file_name)
     import calculator
     answer = math.ceil(calculator.calc() * 100) / 100
+    importlib.reload(calculator)
+    return file_name, index, text_string, formula, answer
+
+def checking_the_answer():
+    answer = 0
+    while answer <= 0 or answer > 10000:
+        file_name, index, text_string, formula, answer = create_task()
+    return file_name, index, text_string, formula, answer
+
+def change_dir():
+    print(f'Вы находитесь в каталоге {os.getcwd()}')
+    path = input('Введите путь для смены каталога: ')
+    try:
+        os.chdir(path)
+        print("Текущий рабочий каталог: {0}".format(os.getcwd()))
+    except FileNotFoundError:
+        print("Каталог: {0} не существует".format(path))
+    except NotADirectoryError:
+        print("{0} не каталог".format(path))
+    except PermissionError:
+        print("У вас нет прав на изменение {0}".format(path))
+
+def view_dir_file():
+    unsorted_file_list = os.listdir()
+    sortetd_file_list = sorted(unsorted_file_list)
+    for index in sortetd_file_list:
+        if os.path.isfile(index):
+            print(index)
+
+def view_dir():
+    unsorted_file_list = os.listdir()
+    sortetd_file_list = sorted(unsorted_file_list)
+    for index in sortetd_file_list:
+        print(index)
+
+def output_console():
+    file_name, index, text_string, formula, answer = checking_the_answer()
+    print()
+    print('Исходный файл:', file_name, ' Вариант №', index)
+    print(text_string)
+    print('Ответ : ', formula, ' = ', answer)
+    print()
+
+def output_one_file():
+    name = input('Введите количество задач  ')
+    for i in range(int(name)):
+        file_name, index, text_string, formula, answer = checking_the_answer()
+        print_rezult_file(file_name, index, text_string, formula, answer)
+        print('Задача ',i,'успешно добавлена в файл')
+
+def output_two_file():
+    name = input('Введите количество задач  ')
+    for i in range(int(name)):
+        file_name, index, text_string, formula, answer = checking_the_answer()
+        string = 'Номер по порядку '+str(i)+'  Исходный файл:' + file_name + ' Вариант №' + str(index) + '\n'
+        with open('task.txt', 'a', encoding='utf-8') as f1:
+            f1.write(string)
+            text_string = text_string + '\n'
+            f1.write(text_string)
+            f1.write('\n')
+
+        with open('answer.txt', 'a', encoding='utf-8') as f2:
+            f2.write(string)
+            string = 'Ответ : ' + formula + ' = ' + str(answer) + '\n'
+            f2.write(string)
+            f2.write('\n')
+
+        print_rezult_file(file_name, index, text_string, formula, answer)
+        print('Задача ',i,'успешно добавлена в файл')
+
+if __name__ == '__main__':
+    file_name, index, text_string, formula, answer = create_task()
     if answer > 0:
         print('Исходный файл:', file_name, ' Вариант №', index)
         print(text_string)

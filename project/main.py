@@ -1,25 +1,37 @@
 import function
 import math
 
-list_of_file = function.get_list_of_files()
-file_name, index = function.select_random_list(list_of_file)
-string_variables, list_of_calc = function.dictionary_of_variables(file_name)
 
-list_all = function.list_of_options(file_name)
-# print(list_all)
+# file_name, index, text_string, formula, answer = function.checking_the_answer()
+#
+# print('Исходный файл:', file_name, ' Вариант №', index)
+# print(text_string)
+# print('Ответ : ',formula,' = ', answer)
+# function.print_rezult_file(file_name, index, text_string, formula, answer)
 
-# обработка рандома из несуществующего списка. Сделать после
-list_options, index = function.select_random_list(list_all)
-# print(list_options)
+while True:
+    print('1. Создать случайную задачу и вывести в консоль')
+    print('2. Создать n случайных задач и записать их с ответами в файл rezult.txt')
+    print('3. Создать n случайных задач и записать их в файл task.txt а ответы в файл answer.txt')
+    print('4. просмотр содержимого рабочей директории')
+    print('5. посмотреть только файлы')
+    print('6. смена рабочей директории')
+    print('7. выход')
 
-text_string = function.task_text_generation(list_options, string_variables)
-formula = function.print_file(list_of_calc, index, file_name)
-import calculator
-answer = math.ceil(calculator.calc() * 100) / 100
-if answer > 0:
-    print('Исходный файл:', file_name, ' Вариант №', index)
-    print(text_string)
-    print('Ответ : ',formula,' = ', answer)
-    function.print_rezult_file(file_name, index, text_string, formula, answer)
-else:
-    print('Наша математическая модель не учитывет что результат не должен быть отрицательным, поэтому попробуйте еще раз')
+    choice = input('Выберите пункт меню  ')
+    if choice == '1':
+        function.output_console()
+    elif choice == '2':
+        function.output_one_file()
+    elif choice == '3':
+        function.output_two_file()
+    elif choice == '4':
+        function.view_dir()
+    elif choice == '5':
+        function.view_dir_file()
+    elif choice == '6':
+        function.change_dir()
+    elif choice == '7':
+        break
+    else:
+        print('Неверный пункт меню')

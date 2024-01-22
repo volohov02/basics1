@@ -37,7 +37,8 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:create' %}">Создать пост</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'blog:skills_list' %}">Список скиллов</a></li>
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'users:logout' %}">{{user.username}} / Выход</a></li>
+                            <li class="nav-item">Привет, <a href="{% url 'users:profile' pk=user.pk %}">{{user.username}}</a>
+                                <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'users:logout' %}">{{user.username}} / Выход</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'users:login' %}">Вход</a></li>
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'users:register' %}">Регистрация</a></li>

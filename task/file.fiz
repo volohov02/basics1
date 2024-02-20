@@ -1,0 +1,106 @@
+Задача vaaf1449(ver2)
+<string_variables>
+A = a
+A2 = В далёкой-далёкой галактике на планете Плюк
+U = с ускорением свободного падения
+B = тело
+M = массой
+B1 = падает
+H = с высоты
+V = с начальной скоростью
+I = и
+B2 = углубляется в песок
+S = на расстояние
+E = если известно, что
+O = Определите
+R = равно
+R1 = равны
+R2 = равна
+R3 = равен
+W = соответственно
+Q = среднюю силу сопротивления песка
+P = средняя сила сопротивления песка
+F2 = сила сопротивления воздуха постоянна и равна
+Q0 = величину работы силы сопротивления воздуха
+P0 = величина работы силы сопротивления воздуха
+Q1 = величину работы силы сопротивления песка
+P1 = величина работы силы сопротивления песка
+Q2 = кинетическую энергию тела в начале движения
+P2 = кинетическая энергия тела в начале движения
+Q3 = ускорение свободного падения на этой планете
+Q4 = массу тела
+Q5 = высоту, с которой падает тело
+Q6 = начальную скорость тела
+Q7 = расстояние, на которое тело углубляется в песок
+Q8 = силу сопротивления воздуха, считая её постоянной
+Dot = .
+Comma = ,
+</string_variables>
+<options>
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q=Comma=E=F2=F3=Dot
+A2=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q3=Comma=E=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U1=B=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q4=Comma=E=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=V=V0=I=B2=S=S1=Dot=O=Q5=Comma=E=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=Dot=O=Q7=Comma=E=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q8=Comma=E=P=R2=F1=Dot
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q0=Comma=E=P=R2=F1=Dot
+A2=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q3=Comma=E=P0=R2=A1=Comma=A=P=R2=F1=Dot
+A2=U=U1=B=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q4=Comma=E=P0=R2=A1=Comma=A=P=R2=F1=Dot
+A2=U=U1=B=M=M1=B1=V=V0=I=B2=S=S1=Dot=O=Q5=Comma=E=P0=R2=A1=Comma=A=P=R2=F1=Dot
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=Dot=O=Q7=Comma=E=P0=R2=A1=Comma=A=P=R2=F1=Dot
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q=Comma=E=P0=R2=A1=Dot
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q1=Comma=E=F2=F3=Dot
+A2=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q3=Comma=E=P1=R2=A3=Comma=A=F2=F3=Dot
+A2=U=U1=B=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q4=Comma=E=P1=R2=A3=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=V=V0=I=B2=S=S1=Dot=O=Q5=Comma=E=P1=R2=A3=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=Dot=O=Q7=Comma=E=P1=R2=A3=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=H=H1=V=V0=I=B2=S=S1=Dot=O=Q8=Comma=E=P1=R2=A3=Dot
+A2=U=U1=B=M=M1=B1=H=H1=I=B2=S=S1=Dot=O=Q2=Comma=E=P=R2=F1=Comma=A=F2=F3=Dot
+A2=B=M=M1=B1=H=H1=I=B2=S=S1=Dot=O=Q3=Comma=E=P2=R2=W1=Comma=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U1=B=B1=H=H1=I=B2=S=S1=Dot=O=Q4=Comma=E=P2=R2=W1=Comma=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=I=B2=S=S1=Dot=O=Q5=Comma=E=P2=R2=W1=Comma=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=H=H1=I=B2=Dot=O=Q7=Comma=E=P2=R2=W1=Comma=P=R2=F1=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=H=H1=I=B2=S=S1=Dot=O=Q=Comma=E=P2=R2=W1=Comma=A=F2=F3=Dot
+A2=U=U1=B=M=M1=B1=H=H1=I=B2=S=S1=Dot=O=Q8=Comma=E=P2=R2=W1=Comma=A=P=R2=F1=Dot
+</options>
+<namber_variables>
+U1 = g = 2 = 20 = м/с^2
+M1 = m = 0.5 = 5 = кг
+H1 = H = 5 = 30 = м
+V0 = v = 0.5 = 10 = м/с
+S1 = h = 0.1 = 0.5 = м
+F1 = F = 200 = 400 = Н
+F3 = f = 1 = 10 = Н
+A1 = A = 15 = 100 = Дж
+A3 = A_1 = 15 = 100 = Дж
+W1 = W = 15 = 100 = Дж
+</namber_variables>
+<solution>
+</solution>
+<answer>
+answer = -(1/2)*(-2*H*g*m-2*g*h*m-m*v**2+2*H*f)/h
+answer = (1/2)*(-m*v**2+2*F*h+2*H*f)/(m*(H+h))
+answer = (2*(F*h+H*f))/(2*H*g+2*g*h+v**2)
+answer = -(1/2)*(-2*g*h*m-m*v**2+2*F*h)/(-g*m+f)
+answer = -(1/2)*(-2*H*g*m-m*v**2+2*H*f)/(-g*m+F)
+answer = -(1/2)*(-2*H*g*m-2*g*h*m-m*v**2+2*F*h)/H
+answer = m*g*h+m*g*H+(1/2)*m*v**2-F*h
+answer = (1/2)*(-m*v**2+2*F*h+2*A)/(m*(H+h))
+answer = (2*(F*h+A))/(2*H*g+2*g*h+v**2)
+answer = (1/2)*(-2*g*h*m-m*v**2+2*F*h+2*A)/(m*g)
+answer = -(1/2)*(-2*H*g*m-m*v**2+2*A)/(-g*m+F)
+answer = -(1/2)*(-2*H*g*m-2*g*h*m-m*v**2+2*A)/h
+answer = m*g*h+m*g*H+(1/2)*m*v**2-f*H
+answer = (1/2)*(-m*v**2+2*H*f+2*A_1)/(m*(H+h))
+answer = (2*(H*f+A_1))/(2*H*g+2*g*h+v**2)
+answer = -(1/2)*(-2*g*h*m-m*v**2+2*A_1)/(-g*m+f)
+answer = (1/2)*(-2*H*g*m-m*v**2+2*H*f+2*A_1)/(m*g)
+answer = -(1/2)*(-2*H*g*m-2*g*h*m-m*v**2+2*A_1)/H
+answer = -H*g*m-g*h*m+F*h+H*f
+answer = (F*h+H*f-W)/(m*(H+h))
+answer = (F*h+H*f-W)/(g*(H+h))
+answer = -(-g*h*m+F*h-W)/(-g*m+f)
+answer = -(-H*g*m+H*f-W)/(-g*m+F)
+answer = -(-H*g*m-g*h*m+H*f-W)/h
+answer = -(-H*g*m-g*h*m+F*h-W)/H
+</answer>
